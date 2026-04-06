@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AppointmentsController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ServicesController;
 use Illuminate\Http\Request;
@@ -16,4 +17,5 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/services', [ServicesController::class, 'index']);
 
+    Route::get('/appointments', [AppointmentsController::class, 'index']);
 });
