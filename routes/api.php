@@ -18,4 +18,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/services', [ServicesController::class, 'index']);
 
     Route::get('/appointments', [AppointmentsController::class, 'index']);
+
+    Route::post('/appointments', [AppointmentsController::class, 'create']);
 });
