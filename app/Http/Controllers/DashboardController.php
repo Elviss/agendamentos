@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Api\StoreAppointmentRequest;
 use App\Models\Appointment;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -53,12 +54,9 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function storeAppointment(Request $request)
+    public function storeAppointment(StoreAppointmentRequest $request)
     {
-        $validated = $request->validate([
-            'service_id' => 'required|exists:services,id',
-            'date_time' => 'required|date|after:now',
-        ]);
+        $validated = $request->validated();
 
         $validated['client_name'] = Auth::user()->name;
 

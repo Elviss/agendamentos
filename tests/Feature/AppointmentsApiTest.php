@@ -18,7 +18,7 @@ test('it can list appointments', function () {
 test('it can create an appointment', function () {
     $user = User::factory()->create();
     $service = Service::factory()->create();
-    $dateTime = now()->addDay()->format('Y-m-d H:i:s');
+    $dateTime = now()->addDay()->setTime(10, 0, 0)->format('Y-m-d H:i:s');
 
     $response = $this->actingAs($user, 'sanctum')
         ->postJson('/api/appointment', [

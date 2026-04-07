@@ -21,7 +21,7 @@ class AppointmentFactory extends Factory
         return [
             'client_name' => $this->faker->name(),
             'service_id' => Service::factory(),
-            'date_time' => $this->faker->dateTimeBetween('now', '+1 month'),
+            'date_time' => $this->faker->dateTimeBetween('now', '+1 month')->setTime(rand(8, 17), rand(0, 59), 0)->format('Y-m-d H:i:s'),
         ];
     }
 }
