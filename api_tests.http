@@ -1,0 +1,63 @@
+@baseUrl = http://localhost:8000/api
+
+### Register a new user
+POST {{baseUrl}}/register
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+> {%
+    client.global.set("authToken", response.body.access_token);
+%}
+
+### Login
+# @name login
+POST {{baseUrl}}/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password"
+}
+
+> {%
+    client.global.set("authToken", response.body.access_token);
+%}
+
+### Get User Info
+GET {{baseUrl}}/user
+Authorization: Bearer {{authToken}}
+Accept: application/json
+
+### Logout
+POST {{baseUrl}}/logout
+Authorization: Bearer {{authToken}}
+Accept: application/json
+
+### List Services
+GET {{baseUrl}}/services
+Authorization: Bearer {{authToken}}
+Accept: application/json
+
+### List Appointments
+GET {{baseUrl}}/appointments
+Authorization: Bearer {{authToken}}
+Accept: application/json
+
+### Create Appointment
+POST {{baseUrl}}/appointment
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "service_id": 1,
+  "date_time": "2026-04-07 10:00:00"
+}
