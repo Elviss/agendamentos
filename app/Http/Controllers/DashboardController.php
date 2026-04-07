@@ -33,7 +33,7 @@ class DashboardController extends Controller
         }
 
         throw ValidationException::withMessages([
-            'email' => ['The provided credentials do not match our records.'],
+            'email' => ['As credenciais fornecidas não correspondem aos nossos registros.'],
         ]);
     }
 
@@ -64,6 +64,6 @@ class DashboardController extends Controller
 
         Appointment::create($validated);
 
-        return redirect()->back()->with('message', 'Appointment created successfully!');
+        return redirect()->back()->with('message', 'Agendamento criado com sucesso!');
     }
 }
