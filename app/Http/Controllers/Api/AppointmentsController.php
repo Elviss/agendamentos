@@ -18,7 +18,10 @@ class AppointmentsController extends Controller
 
     public function store(StoreAppointmentRequest $request)
     {
-        $appointment = Appointment::create($request->validated());
+        $newAppointment = $request->validated();
+        $newAppointment['client_name'] = $request->user()->name;
+
+        $appointment = Appointment::create($newAppointment);
 
         return response()->json([
             'data' => $appointment,

@@ -22,7 +22,6 @@ class StoreAppointmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'client_name' => ['required', 'string', 'max:255'],
             'service_id' => ['required', 'exists:services,id'],
             'date_time' => ['required', 'date_format:Y-m-d H:i:s'],
         ];
