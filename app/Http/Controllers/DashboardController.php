@@ -58,6 +58,8 @@ class DashboardController extends Controller
     {
         $validated = $request->validated();
 
+        $validated['date_time'] = \Carbon\Carbon::parse($validated['date_time'])->format('Y-m-d H:i:s');
+
         $validated['client_name'] = Auth::user()->name;
 
         Appointment::create($validated);

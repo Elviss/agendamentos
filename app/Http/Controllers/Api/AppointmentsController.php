@@ -19,6 +19,7 @@ class AppointmentsController extends Controller
     public function store(StoreAppointmentRequest $request)
     {
         $newAppointment = $request->validated();
+        $newAppointment['date_time'] = \Carbon\Carbon::parse($newAppointment['date_time'])->format('Y-m-d H:i:s');
         $newAppointment['client_name'] = $request->user()->name;
 
         $appointment = Appointment::create($newAppointment);

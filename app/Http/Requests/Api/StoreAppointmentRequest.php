@@ -27,13 +27,19 @@ class StoreAppointmentRequest extends FormRequest
             'service_id' => ['required', 'exists:services,id'],
             'date_time' => [
                 'required',
-                'date_format:Y-m-d H:i:s',
+                'date',
                 'after:now',
                 Rule::unique('appointments', 'date_time'),
                 function ($attribute, $value, $fail) {
-                    $date = Carbon::createFromFormat('Y-m-d H:i:s', $value);
+                    try {
+                        $date = Carbon::parse($value);
+                    } catch (\Exception $e) {
+                        $fail('O ' . $attribute . ' não é uma data valida.');
+                        return;
+                    }
+
                     if ($date->hour < 8 || $date->hour > 18 || ($date->hour === 18 && ($date->minute > 0 || $date->second > 0))) {
-                        $fail('The appointment must be between 08:00 and 18:00.');
+                        $fail('O agendamento deve ser entre 08:00 e 18:00.');
                     }
                 },
             ],

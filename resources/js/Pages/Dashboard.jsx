@@ -4,13 +4,16 @@ import { Head, useForm } from '@inertiajs/react';
 export default function Dashboard({ auth, services, appointments, flash }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         service_id: '',
-        appointment_date: '',
+        date_time: '',
     });
 
     const submit = (e) => {
         e.preventDefault();
         post(route('appointment.store'), {
             onSuccess: () => reset(),
+            onError: (errors) => {
+                console.error(errors);
+            }
         });
     };
 
@@ -57,7 +60,7 @@ export default function Dashboard({ auth, services, appointments, flash }) {
                                     onChange={(e) => setData('date_time', e.target.value)}
                                     required
                                 />
-                                {errors.date_time && <div className="text-red-600 text-sm mt-1">{errors.appointment_date}</div>}
+                                {errors.date_time && <div className="text-red-600 text-sm mt-1">{errors.date_time}</div>}
                             </div>
 
                             <div className="mt-6">
