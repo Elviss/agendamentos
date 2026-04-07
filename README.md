@@ -21,6 +21,7 @@ Este projeto foi desenvolvido utilizando o **Laravel 13**, aproveitando as funci
 - **Inertia.js & React:** Para o frontend, foi escolhido o **Inertia.js** para construir uma aplicação de página única (SPA) com **React**, mantendo a facilidade de desenvolvimento e o roteamento dentro do ecossistema Laravel.
 - **Testes Automatizados:** Foram criados testes unitários e de integração para a API, garantindo a confiabilidade do sistema e facilitando manutenções futuras.
 - **Banco de Dados & Seeds:** O banco de dados é gerido inteiramente por **Migrations**. Foram implementadas **Factories** para os modelos de `Service` e `Appointment`, permitindo gerar dados de teste de forma rápida e eficiente.
+- **Docker:** Foi escolhida a utilização do **Docker** para garantir um ambiente de desenvolvimento padronizado e isolado, facilitando a execução do projeto em qualquer sistema operacional sem conflitos de dependências.
 
 ---
 
