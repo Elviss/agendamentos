@@ -26,7 +26,7 @@ export default function Login() {
                             type="email"
                             name="email"
                             value={data.email}
-                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                            className="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                             autoComplete="username"
                             onChange={(e) => setData('email', e.target.value)}
                             required
@@ -41,7 +41,7 @@ export default function Login() {
                             type="password"
                             name="password"
                             value={data.password}
-                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                            className="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                             autoComplete="current-password"
                             onChange={(e) => setData('password', e.target.value)}
                             required

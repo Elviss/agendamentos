@@ -33,7 +33,7 @@ export default function Dashboard({ auth, services, appointments, flash }) {
                             <div>
                                 <label className="block text-sm font-medium text-gray-700">Select Service</label>
                                 <select
-                                    className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                                    className="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                                     value={data.service_id}
                                     onChange={(e) => setData('service_id', e.target.value)}
                                     required
@@ -52,7 +52,7 @@ export default function Dashboard({ auth, services, appointments, flash }) {
                                 <label className="block text-sm font-medium text-gray-700">Date and Time</label>
                                 <input
                                     type="datetime-local"
-                                    className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                                    className="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                                     value={data.date_time}
                                     onChange={(e) => setData('date_time', e.target.value)}
                                     required
