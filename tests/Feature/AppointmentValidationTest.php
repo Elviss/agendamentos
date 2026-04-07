@@ -67,6 +67,19 @@ test('it can create an appointment at 8 am', function () {
     $response->assertStatus(201);
 });
 
+test('it cannot create an appointment at 7 pm', function () {
+    $dateTime = '2026-04-07 19:00:00';
+
+    $response = $this->actingAs($this->user, 'sanctum')
+        ->postJson('/api/appointment', [
+            'service_id' => $this->service->id,
+            'date_time' => $dateTime,
+        ]);
+
+    $response->assertStatus(422)
+        ->assertJsonValidationErrors(['date_time']);
+});
+
 test('it can create an appointment at 6 pm', function () {
     $dateTime = '2026-04-07 18:00:00';
 
