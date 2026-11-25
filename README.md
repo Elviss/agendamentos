@@ -1,123 +1,139 @@
-# Sistema de Agendamentos
+🇧🇷 [Leia em português](README.pt-BR.md)
 
-Este é um sistema de agendamentos completo, desenvolvido com **Laravel 13**, **Inertia.js** e **React**. A aplicação permite que usuários se cadastrem, façam login, visualizem serviços disponíveis e realizem agendamentos tanto via interface web quanto via API REST.
+# Appointment Scheduling System
 
-## 🚀 Tecnologias Utilizadas
+This is an appointment scheduling system built with **Laravel 13**, **Inertia.js**, and **React**. The application lets users sign up, log in, view the available services, and book appointments through both the web interface and a REST API.
+
+## 🚀 Technologies Used
 
 - **Backend:** Laravel 13
 - **Frontend:** React (via Inertia.js)
-- **Estilização:** Tailwind CSS
-- **Banco de Dados:** MySQL
-- **Testes:** Pest PHP
-- **Containerização:** Docker & Docker Compose
+- **Styling:** Tailwind CSS
+- **Database:** MySQL
+- **Testing:** Pest PHP
+- **Containerization:** Docker & Docker Compose
 
 ---
 
-## 🧠 Decisões Técnicas
+## 🧠 Technical Decisions
 
-Este projeto foi desenvolvido utilizando o **Laravel 13**, aproveitando as funcionalidades mais recentes do framework. Abaixo estão os pontos centrais da arquitetura:
+This project was built with **Laravel 13**, taking advantage of the framework's latest features. The key architectural points are:
 
-- **API First:** O backend foi estruturado seguindo o padrão *API First*, onde todos os endpoints foram desenvolvidos primeiro, permitindo que qualquer cliente (web ou mobile) possa consumir os dados de forma padronizada.
-- **Inertia.js & React:** Para o frontend, foi escolhido o **Inertia.js** para construir uma aplicação de página única (SPA) com **React**, mantendo a facilidade de desenvolvimento e o roteamento dentro do ecossistema Laravel.
-- **Testes Automatizados:** Foram criados testes unitários e de integração para a API, garantindo a confiabilidade do sistema e facilitando manutenções futuras.
-- **Banco de Dados & Seeds:** O banco de dados é gerido inteiramente por **Migrations**. Foram implementadas **Factories** para os modelos de `Service` e `Appointment`, permitindo gerar dados de teste de forma rápida e eficiente.
-- **Docker:** Foi escolhida a utilização do **Docker** para garantir um ambiente de desenvolvimento padronizado e isolado, facilitando a execução do projeto em qualquer sistema operacional sem conflitos de dependências.
-
----
-
-## ⏱️ Tempo de Desenvolvimento
-
-O tempo total investido no desenvolvimento desta solução foi de **5h 30m**.
+- **API First:** The backend follows the *API First* approach: all endpoints were developed first, so any client (web or mobile) can consume the data in a standardized way.
+- **Inertia.js & React:** **Inertia.js** was chosen for the frontend to build a single-page application (SPA) with **React**, keeping development simple and routing within the Laravel ecosystem.
+- **Automated Testing:** Unit and integration tests were written for the API, ensuring the system's reliability and making future maintenance easier.
+- **Database & Seeds:** The database is managed entirely through **Migrations**. **Factories** were implemented for the `Service` and `Appointment` models, making it quick and easy to generate test data.
+- **Docker:** **Docker** was chosen to provide a standardized, isolated development environment, so the project runs on any operating system without dependency conflicts.
 
 ---
 
-## 🛠️ Como Rodar o Projeto do Zero
+## ⏱️ Development Time
 
-Siga os passos abaixo para configurar o ambiente de desenvolvimento em sua máquina local.
+The total time invested in developing this solution was **5h 30m**.
 
-### Pré-requisitos
+---
 
-Antes de começar, você precisará ter instalado:
+## 🛠️ Getting Started from Scratch
+
+Follow the steps below to set up the development environment on your local machine.
+
+### Prerequisites
+
+Before you begin, make sure you have installed:
+
 - [Git](https://git-scm.com/)
-- [Docker](https://www.docker.com/) e [Docker Compose](https://docs.docker.com/compose/)
-- *OU* ambiente local com PHP 8.3+, Composer, Node.js e MySQL.
+- [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/)
+- *OR* a local environment with PHP 8.3+, Composer, Node.js, and MySQL.
 
-### Passo 1: Clonar o Repositório
+### Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/Elviss/agendamentos.git
 cd agendamentos
 ```
 
-### Passo 2: Configuração com Docker (Recomendado)
+### Step 2: Docker Setup (Recommended)
 
-A maneira mais fácil de rodar o projeto é usando Docker.
+The easiest way to run the project is with Docker.
 
-1. **Subir os containers:**
+1. **Start the containers:**
+
    ```bash
    docker-compose up -d
    ```
 
-2. **Instalar dependências e configurar a aplicação:**
-   Acesse o container da aplicação para executar os comandos:
+2. **Install dependencies and configure the application:** Access the application container to run the commands:
+
    ```bash
    docker exec -it laravel-app bash
    ```
-   Dentro do container, execute o script de setup:
+
+   Inside the container, run the setup script:
+
    ```bash
    composer run setup
    ```
-   *Este comando irá instalar dependências PHP e JS, criar o arquivo .env, gerar a chave da aplicação e rodar as migrações.*
 
-3. **Acessar a aplicação:**
+   *This command installs the PHP and JS dependencies, creates the .env file, generates the application key, and runs the migrations.*
+
+3. **Open the application:**
+
    - Web: [http://localhost:8000](http://localhost:8000)
 
 ---
 
-### Passo 2 (Alternativo): Configuração Local
+### Step 2 (Alternative): Local Setup
 
-Se preferir rodar sem Docker:
+If you prefer to run it without Docker:
 
-1. **Instalar dependências do PHP:**
+1. **Install the PHP dependencies:**
+
    ```bash
    composer install
    ```
 
-2. **Configurar o ambiente:**
+2. **Configure the environment:**
+
    ```bash
    cp .env.example .env
    php artisan key:generate
    ```
-   *Edite o arquivo `.env` com suas credenciais de banco de dados local.*
 
-3. **Rodar as migrações e seeders:**
+   *Edit the `.env` file with your local database credentials.*
+
+3. **Run the migrations and seeders:**
+
    ```bash
    php artisan migrate
    ```
 
-4. **Instalar dependências do Frontend e Build:**
+4. **Install the frontend dependencies and build:**
+
    ```bash
    npm install
    npm run dev
    ```
 
-5. **Iniciar o servidor:**
+5. **Start the server:**
+
    ```bash
    php artisan serve
    ```
 
 ---
 
-## 🧪 Como Executar os Testes
+## 🧪 Running the Tests
 
-Este projeto utiliza o **Pest PHP** para testes automatizados.
+This project uses **Pest PHP** for automated testing.
 
-### Via Docker:
+### With Docker:
+
 ```bash
 docker exec -it laravel-app composer test
 ```
 
-### Localmente:
+### Locally:
+
 ```bash
 php artisan test
 ```
@@ -126,36 +142,36 @@ php artisan test
 
 ## 🔌 API Endpoints
 
-A aplicação fornece uma API REST para integração. Todos os endpoints da API (exceto login e registro) requerem autenticação via **Laravel Sanctum**.
+The application provides a REST API for integration. All API endpoints (except login and registration) require authentication via **Laravel Sanctum**.
 
-### Endpoints Públicos
+### Public Endpoints
 
-| Método | Endpoint | Descrição |
-| :--- | :--- | :--- |
-| `POST` | `/api/register` | Registrar um novo usuário |
-| `POST` | `/api/login` | Autenticar usuário e obter token |
+| Method | Endpoint        | Description                          |
+| ------ | --------------- | ------------------------------------ |
+| `POST` | `/api/register` | Register a new user                  |
+| `POST` | `/api/login`    | Authenticate a user and get a token  |
 
-### Endpoints Autenticados (Bearer Token)
+### Authenticated Endpoints (Bearer Token)
 
-| Método | Endpoint | Descrição |
-| :--- | :--- | :--- |
-| `GET` | `/api/user` | Obter dados do usuário logado |
-| `POST` | `/api/logout` | Revogar o token de acesso |
-| `GET` | `/api/services` | Listar todos os serviços disponíveis |
-| `GET` | `/api/appointments` | Listar agendamentos do usuário |
-| `POST` | `/api/appointment` | Criar um novo agendamento |
-
----
-
-## 💻 Funcionalidades da Aplicação
-
-1. **Autenticação:** Sistema completo de login e registro para usuários.
-2. **Dashboard:** Visualização de agendamentos realizados.
-3. **Agendamento:** Interface para escolher um serviço, data e horário.
-4. **Gerenciamento de Serviços:** Listagem de serviços oferecidos pela plataforma.
+| Method | Endpoint            | Description                          |
+| ------ | ------------------- | ------------------------------------ |
+| `GET`  | `/api/user`         | Get the logged-in user's data        |
+| `POST` | `/api/logout`       | Revoke the access token              |
+| `GET`  | `/api/services`     | List all available services          |
+| `GET`  | `/api/appointments` | List the user's appointments         |
+| `POST` | `/api/appointment`  | Create a new appointment             |
 
 ---
 
-## 📄 Licença
+## 💻 Application Features
 
-Este projeto é um software de código aberto licenciado sob a [MIT license](https://opensource.org/licenses/MIT).
+1. **Authentication:** Login and registration for users.
+2. **Dashboard:** View booked appointments.
+3. **Scheduling:** Interface to choose a service, date, and time.
+4. **Service Management:** List of the services offered by the platform.
+
+---
+
+## 📄 License
+
+This project is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
