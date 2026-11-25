@@ -4,10 +4,12 @@ use App\Models\Appointment;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Carbon;
 
 uses(RefreshDatabase::class);
 
 beforeEach(function () {
+    $this->travelTo(Carbon::parse('2026-04-01 09:00:00'));
     $this->user = User::factory()->create();
     $this->service = Service::factory()->create();
 });
