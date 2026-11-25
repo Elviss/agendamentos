@@ -45,7 +45,7 @@ Antes de começar, você precisará ter instalado:
 ### Passo 1: Clonar o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/agendamentos.git
+git clone https://github.com/Elviss/agendamentos.git
 cd agendamentos
 ```
 
