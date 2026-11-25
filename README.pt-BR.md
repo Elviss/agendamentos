@@ -1,4 +1,8 @@
+🇺🇸 [Read in English](README.md)
+
 # Sistema de Agendamentos
+
+![Tests](https://github.com/Elviss/agendamentos/actions/workflows/laravel.yml/badge.svg)
 
 Este é um sistema de agendamentos completo, desenvolvido com **Laravel 13**, **Inertia.js** e **React**. A aplicação permite que usuários se cadastrem, façam login, visualizem serviços disponíveis e realizem agendamentos tanto via interface web quanto via API REST.
 

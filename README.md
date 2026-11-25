@@ -2,6 +2,8 @@
 
 # Appointment Scheduling System
 
+![Tests](https://github.com/Elviss/agendamentos/actions/workflows/laravel.yml/badge.svg)
+
 This is an appointment scheduling system built with **Laravel 13**, **Inertia.js**, and **React**. The application lets users sign up, log in, view the available services, and book appointments through both the web interface and a REST API.
 
 ## 🚀 Technologies Used
